@@ -30,7 +30,7 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 function looper(family) {
   var i = 0;
   while (i < family.length) {
-    alert family[i];
+    alert (family[i]);
     i++;
   }
 }
@@ -60,10 +60,11 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
 function evenFinder(nums) {
   for (var z = 0; z < nums.length; z++) {
-    if (nums[z] % 2 === 0) {
-      nums.splice(i, 1);
+    if (nums[z] % 2 !== 0) {
+      nums.splice(z, 1);
     }
   }
+  return nums;
 }
 
 
@@ -78,7 +79,7 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 function divider(numbersArray) {
   var evens = [];
-  var odd = [];
+  var odds = [];
   for (var x = 0; x < numbersArray.length; x++) {
     if (numbersArray[x] % 2 === 0) {
       evens.push(numbersArray[x]);
@@ -143,17 +144,15 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 function removeItem(myGroceryList, itemToRemove) {
-  if (myGroceryList.isArray && typeOf itemToRemove === "string" && myGroceryList[itemToRemove]) {
-    delete myGroceryList[itemToRemove];
-    return myGroceryList;
-  }
+    if (myGroceryList.indexOf(itemToRemove) > -1) {
+      myGroceryList.splice(myGroceryList.indexOf(itemToRemove), 1);
+    }
+  return myGroceryList;
 }
 
 function addItem(myGroceryList, itemToAdd) {
-  if (myGroceryList.isArray && typeOf itemToAdd === "string") {
     myGroceryList.push(itemToAdd);
     return myGroceryList;
-  }
 }
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
@@ -167,27 +166,30 @@ function addItem(myGroceryList, itemToAdd) {
 
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
-function maker() {
-  var keysArray = function()Array.from(Array(216).keys());
-  return keysArray;
-}
 
+function maker() {
+  var keys = [];
+  for (var m = 1; m <= 215; m++) {
+     keys.push(m);
+  }
+  return keys;
+}
 
 
 //Next Problem
 
 
-var numbers = [5, '9', 16, 19, '25', '34', 48];
+var numbers = [5, 9, 16, 19, 25, 34, 48];
 //Write a function called addTen that is given 'numbers' as it's only argument and returns a new
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
 function addTen(numbers) {
-  var plusTen = numbers.map(function(num) {
-    num + 10;
-  });
-  return plusTen;
+  var numPlusTen = [];
+  for (var q = 0; q < numbers.length; q++) {
+    numPlusTen.push(numbers[q]+10);
+  }
+  return numPlusTen;
 }
-
 
 
 //Next Problem
@@ -270,14 +272,14 @@ devMountainEmployees.push(tyler);
 devMountainEmployees.push(cahlan);
 devMountainEmployees.push(ryan);
 devMountainEmployees.push(colt);
-console.log(devMountainEmployees.length);
+console.log(devMountainEmployees);
 
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
-for (var b = 0; b < devMountainEmployees.length; b++) {
-  if (devMountainEmployees[i].name === "Cahlan") {
-    delete devMountainEmployees[i];
+for (var k = 0; k < devMountainEmployees.length; k++) {
+  if (devMountainEmployees[k]["name"] === "Cahlan") {
+    delete devMountainEmployees[k];
   }
 }
 
@@ -357,7 +359,7 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
 for (var j = 0; j < users.length; j++) {
-  if (users[j].email === "tylermcginnis33@gmail.com") {
+  if (users[j]["email"] === "tylermcginnis33@gmail.com") {
     delete users[j];
   }
 }
