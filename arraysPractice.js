@@ -101,9 +101,10 @@ var getRandomArbitrary = function() {
 
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
-  //Code Here
-
-  //Code Here
+function finder(arr) {
+  var num = getRandomArbitrary();
+  return arr.includes(num);
+}
 
 
 //Next problem
@@ -114,7 +115,12 @@ var str = 'this is my sentence';
 //Write a function called reverse that takes a given str as it's only argument and returns that string after it's been reversed
 
   //Code Here
-
+function reverse (str) {
+  var reverseStr = "";
+  for (var h = str.length - 1; h > -1; h--) {
+    reverseStr += str[h];
+  }
+}
 
 //Next Problem
 
@@ -135,7 +141,19 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
   In both the removeItem function and the addItem function, you will also need to check for valid aurguments. Specrunner will try to call your functions without passing in valid aurguments. When this happens, you will need to respond by returning an empty array.
 */
 
-  //Code Here
+function removeItem(myGroceryList, itemToRemove) {
+  if (myGroceryList.isArray && typeOf itemToRemove === "string" && myGroceryList[itemToRemove]) {
+    delete myGroceryList[itemToRemove];
+    return myGroceryList;
+  }
+}
+
+function addItem(myGroceryList, itemToAdd) {
+  if (myGroceryList.isArray && typeOf itemToAdd === "string") {
+    myGroceryList.push(itemToAdd);
+    return myGroceryList;
+  }
+}
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
